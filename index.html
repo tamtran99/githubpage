@@ -2,38 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My GitHub Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <img src="avatar.jpg" alt="Avatar" class="avatar" />
-    <h1>👋 Welcome to Cong Tam Page</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container header-content">
+      <img src="avatar.png" alt="Avatar" class="avatar" />
+      <h1>TRAN CONG TAM</h1>
+      <p>Data Analyst | Power BI | SQL | Python</p>
+      <nav>
+        <ul>
+          <li><a href="#" data-tab="about">About</a></li>
+          <li><a href="#" data-tab="skills">Skills</a></li>
+          <li><a href="#" data-tab="projects">Projects</a></li>
+          <li><a href="#" data-tab="resume">Resume</a></li>
+          <li><a href="#" data-tab="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="projects">
-    <h2>📁 Projects</h2>
-    <ul>
-      <li><strong>Data Dashboard</strong>: A Power BI sales report with custom DAX.</li>
-      <li><strong>Spark Optimizer</strong>: Optimized data processing in Apache Spark.</li>
-    </ul>
-  </section>
+  <main class="container">
+    <section id="about" class="tab active">
+      <h2>About Me</h2>
+      <p>Hi, I'm Nguyen Van A, a passionate Data Analyst with 3+ years of experience in extracting insights from data using SQL, Power BI, and Python. I love transforming data into actionable decisions.</p>
+    </section>
 
-  <section id="contact">
-    <h2>📬 Contact Me</h2>
-    <p>Find me on <a href="https://github.com/tamtran99" target="_blank">GitHub</a> or <a href="trancongtam1410@gmail.com">email</a>.</p>
-  </section>
+    <section id="skills" class="tab">
+      <h2>Skills</h2>
+      <ul>
+        <li>SQL (PostgreSQL, BigQuery)</li>
+        <li>Power BI (DAX, Report Design)</li>
+        <li>Python (Pandas, Matplotlib)</li>
+        <li>ETL Pipeline Design</li>
+        <li>Data Modeling & Warehousing</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="tab">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Sales Dashboard (Power BI)</strong> - Visualized sales KPIs, trends, and top-performing products.</li>
+        <li><strong>Customer Churn Prediction</strong> - Built a logistic regression model to predict customer attrition.</li>
+        <li><strong>Google Analytics to BigQuery ETL</strong> - Automated GA4 data export and analysis in BigQuery.</li>
+      </ul>
+    </section>
+
+    <section id="resume" class="tab">
+      <h2>Resume</h2>
+      <p><a href="resume.pdf" download>📄 Download My Resume (PDF)</a></p>
+    </section>
+
+    <section id="contact" class="tab">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:trancongtam1410@gmail.com">trancongtam1410@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Your Name. Hosted on GitHub Pages.</p>
+    <p>© 2025 Tran Cong Tam</p>
   </footer>
 
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const tabId = link.getAttribute("data-tab");
+
+        tabs.forEach(tab => tab.classList.remove("active"));
+        document.getElementById(tabId).classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
